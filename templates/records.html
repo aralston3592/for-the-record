@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
+{% extends 'base.html' %}
+    {% block content %}
 
-<body>
 	<h2>Off The Record</h2>
 	<ul class="collapsible">
 		{% for record in records %}
@@ -17,22 +12,22 @@
 					<i class="material-icons">expand_more</i>
 				</div>
 				<div class="col s2">
-					 <!-- href="{{url_for('edit_task', task_id=task._id)}}" -->
+					
 					<a class="waves-effect waves-light btn btn_small green">Rate</a>
-					<!-- href="{{url_for('edit_task', task_id=task._id)}}" -->
+					
 					<a class="waves-effect waves-light btn btn_small blue">Edit</a>
 				</div>
 				<div class="col s9 task_header">
-					<img src="{{records.artwork}}">
-                    <strong>{{records.record_title}}</strong> - {{records.track_listing}}
+					<!--<img src="{{record.artwork}}">-->
+                    <strong>{{record.record_title}}</strong> - {{record.artist_name}}
 				</div>
 			</div>
 			<div class="collapsible-body">
-				<span>{{genre.genre}}</span>
+                {{record.track_listing}}
+				<span>{{record.genre}}</span>
 			</div>
 		</li>
 		{% endfor %}
 	</ul>
-</body>
 
-</html>
+    {% endblock %}

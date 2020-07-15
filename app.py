@@ -7,7 +7,7 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
-app.config["DBS_NAME"] = 'off_the_record'
+app.config["DBS_NAME"] = 'on_the_record'
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
 mongo = PyMongo(app)
@@ -15,5 +15,11 @@ mongo = PyMongo(app)
 
 @app.route('/')
 @app.route('/get_records')
-def get_tasks():
+def get_records():
     return render_template("records.html", records=mongo.db.records.find())
+
+
+if __name__ == "__main__":
+    app.run(host=os.environ.get("IP"),
+            port=int(os.environ.get("PORT")),
+            debug=True)
