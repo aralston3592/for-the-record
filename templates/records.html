@@ -9,22 +9,21 @@
 		<li>
 			<div class="collapsible-header">
 				<div class="col s1">
-					<i class="material-icons">expand_more</i>
-				</div>
-				<div class="col s2">
-					
-					<a class="waves-effect waves-light btn btn_small green">Rate</a>
-					
-					<a class="waves-effect waves-light btn btn_small blue">Edit</a>
+					<i class="material-icons">music_note</i>
 				</div>
 				<div class="col s9 task_header">
 					<!--<img src="{{record.artwork}}">-->
-                    <strong>{{record.record_title}}</strong> - {{record.artist_name}}
+                    <h4><strong>{{record.record_title}}</strong></h4>
+                    <h5>{{record.artist_name}}</h5>
+				</div>
+                <div class="col s2">
+                    <a class="waves-effect waves-light btn"><i class="material-icons left">update</i>Update</a>
+                    <a href="{{record.get_it_here}}" class="waves-effect waves-light btn"><i class="material-icons left">shopping_basket</i>Buy!</a>
 				</div>
 			</div>
 			<div class="collapsible-body">
                 {{record.track_listing}}
-				<span>{{record.genre}}</span>
+				<span><strong>{{record.genre}}</strong></span>
 			</div>
 		</li>
 		{% endfor %}
