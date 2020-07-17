@@ -1,8 +1,12 @@
 body {
-    background-color: grey;
+    background-color: ;
 }
 
-a.btn {
+btn {
     border-radius: 4rem;
 
+}
+
+.rating {
+    display: block;
 }

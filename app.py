@@ -36,7 +36,7 @@ def edit_record(record_id):
     the_record = mongo.db.records.find_one({'_id': ObjectId(record_id)})
     all_genres = mongo.db.genres.find()
     return render_template('editrecord.html',
-                           record=the_record, genre=all_genres)
+                           record=the_record, genres=all_genres)
 
 
 @app.route('/update_record/<record_id>', methods=["POST"])
