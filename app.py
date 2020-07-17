@@ -55,6 +55,30 @@ def update_record(record_id):
     return redirect(url_for('get_records'))
 
 
+@app.route('/delete_record/<record_id>')
+def delete_record():
+    mongo.db.records.remove({'_id': ObjectId(record_id)})
+    return redirect(url_for('get_records'))
+
+
+@app.route('/get_genres')
+def get_genres():
+    return render_template('genres.html',
+                           genres=mongo.db.genres.find())
+
+
+@app.route('/add_genre')
+def add_genre():
+    return render_template('addgenre.html', genres=mongo.db.genres.find())
+
+
+@app.route('/insert_genre', methods=["POST"])
+def insert_genre():
+    genres = mongo.db.genres
+    genres.insert_one(request.form.to_dict())
+    return redirect(url_for('get_genres'))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

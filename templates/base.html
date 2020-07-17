@@ -15,13 +15,26 @@
 
     <link
       rel="stylesheet"
-      href="{{url_for('static', filename='css/style.css')}}" type="text/css"
+      href="{{url_for('static', filename='css/style.css')}}"
+      type="text/css"
     />
 
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
     <title>Off The Record</title>
   </head>
   <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="{{url_for('get_records')}}" class="brand-logo">For The Record</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="{{url_for('get_records')}}">Home</a></li>
+          <li><a href="{{url_for('add_record')}}">Add Record</a></li>
+          <li><a href="{{url_for('get_genres')}}">Genres</a></li>
+          <li><a href="{{url_for('add_genre')}}">Add Genre</a></li>
+
+        </ul>
+      </div>
+    </nav>
     <div class="container">
       {% block content %} {% endblock %}
     </div>
@@ -36,7 +49,6 @@
         $(".collapsible").collapsible();
         $("select").formSelect();
       });
-
     </script>
   </body>
 </html>

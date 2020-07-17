@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 
-{% extends 'base.html' %}
-    {% block content %}
+{% extends 'base.html' %} {% block content %}
 
-	<h2>Off The Record</h2>
-	<ul class="collapsible">
-		{% for record in records %}
-		<li>
-			<div class="collapsible-header">
-				<div class="col s1">
-					<i class="material-icons">music_note</i>
-				</div>
-				<div class="col s9 record_header">
-                    <h4><strong>{{record.record_title}}</strong></h4>
-                    <h5>{{record.artist_name}}</h5>
-				</div>
-                <div class="col s2">
-                    <a href="{{url_for('edit_record', record_id=record._id)}}" class="waves-effect waves-light btn"><i class="material-icons left">update</i>Update</a>
-                    <a target="_blank" href="{{record.get_it_here}}" class="waves-effect waves-light btn"><i class="material-icons left">shopping_basket</i>Buy!</a>
-				</div>
-                <div class="col s6 rating">
-                    <p><strong>Rating: {{record.star_rating}}</strong></p>
-                </div>
-			</div>
-			<div class="collapsible-body">
-                <ul>
-                    <li>Label: {{record.label}}</li>
-                    <li>Year: {{record.year}}</li>
-				    <li>Genre: {{record.genre}}</li>
-                </ul>
-			</div>
-		</li>
-		{% endfor %}
-	</ul>
+<h2>Record Collection</h2>
+<ul class="collapsible">
+  {% for record in records %}
+  <li>
+    <div class="collapsible-header row">
+      <div class="col s9 record_header">
+        <h4><strong>{{record.record_title}}</strong></h4>
+        <h5>{{record.artist_name}}</h5>
+      </div>
+      <div class="col s3">
+        <a
+          href="{{url_for('edit_record', record_id=record._id)}}"
+          class="waves-effect waves-light btn"
+          ><i class="material-icons right">update</i>Update</a
+        >
+        <a
+          target="_blank"
+          href="{{record.get_it_here}}"
+          class="waves-effect waves-light btn"
+          ><i class="material-icons right">shopping_basket</i>Buy!</a
+        >
+        <a
+          href="{{url_for('delete_record', record_id=record._id)}}"
+          class="waves-effect waves-light btn btn_small red"
+          ><i class="material-icons right">delete</i>Remove</a
+        >
+      </div>
+    </div>
+    <div class="collapsible-body">
+      <ul>
+        <li>Label: {{record.label}}</li>
+        <li>Year: {{record.year}}</li>
+        <li>Genre: {{record.genre}}</li>
+        <li>
+          <div class="col s2 rating">
+            <h6>
+              <i class="material-icons">star</i>
+              <strong>Rating: {{record.star_rating}}</strong>
+            </h6>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
 
-    {% endblock %}
+{% endblock %}

@@ -2,11 +2,10 @@ body {
     background-color: ;
 }
 
-btn {
+.btn {
     border-radius: 4rem;
-
-}
-
-.rating {
+    margin-top: 10px;
     display: block;
+    
+
 }
