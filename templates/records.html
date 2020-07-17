@@ -12,18 +12,20 @@
 					<i class="material-icons">music_note</i>
 				</div>
 				<div class="col s9 task_header">
-					<!--<img src="{{record.artwork}}">-->
                     <h4><strong>{{record.record_title}}</strong></h4>
                     <h5>{{record.artist_name}}</h5>
 				</div>
                 <div class="col s2">
-                    <a class="waves-effect waves-light btn"><i class="material-icons left">update</i>Update</a>
-                    <a href="{{record.get_it_here}}" class="waves-effect waves-light btn"><i class="material-icons left">shopping_basket</i>Buy!</a>
+                    <a href="{{'edit_record', record_id=record._id}}" class="waves-effect waves-light btn"><i class="material-icons left">update</i>Update</a>
+                    <a target="_blank" href="{{record.get_it_here}}" class="waves-effect waves-light btn"><i class="material-icons left">shopping_basket</i>Buy!</a>
 				</div>
 			</div>
 			<div class="collapsible-body">
-                {{record.track_listing}}
-				<span><strong>{{record.genre}}</strong></span>
+                <ul>
+                    <li>Label: {{record.label}}</li>
+                    <li>Year: {{record.year}}</li>
+				    <li>Genre: {{record.genre}}</li>
+                </ul>
 			</div>
 		</li>
 		{% endfor %}
