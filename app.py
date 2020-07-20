@@ -50,13 +50,14 @@ def update_record(record_id):
                         'year': request.form.get('year'),
                         'genre': request.form.get('genre'),
                         'get_it_here': request.form.get('get_it_here'),
-                        'star_rating': request.form.get('star_rating')
+                        'star_rating': request.form.get('star_rating'),
+                        'review': request.form.get('review')
                    })
     return redirect(url_for('get_records'))
 
 
 @app.route('/delete_record/<record_id>')
-def delete_record():
+def delete_record(record_id):
     mongo.db.records.remove({'_id': ObjectId(record_id)})
     return redirect(url_for('get_records'))
 
@@ -77,6 +78,15 @@ def insert_genre():
     genres = mongo.db.genres
     genres.insert_one(request.form.to_dict())
     return redirect(url_for('get_genres'))
+
+
+@app.route('/get_records_in_genre/<genre>')
+def get_records_in_genre(genre):
+    genre = mongo.db.genres.find({'genre_name': genre})
+    return render_template('genre.html',
+                           genres=genre,
+                           records=mongo.db.records.find())
+
 
 
 if __name__ == "__main__":

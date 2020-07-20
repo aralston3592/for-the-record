@@ -1,11 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Rowdies:wght@300;400;700&display=swap');
+
 body {
-    background-color: ;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.icon {
+    font-size: 6rem;
+    color: #000
+}
+
+nav .brand-logo {
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.nav-wrapper {
+    background-color: #2d5504;
+    font-family: 'Rowdies', sans-serif;
+    font-weight: 300;
 }
 
 .btn {
     border-radius: 4rem;
     margin-top: 10px;
     display: block;
-    
+    min-width: 12em;
+}
 
+.collapsible-body {
+    padding-bottom: 4em;
+}
+
+.page-footer {
+    background-color: #2d5504
+}
+
+main {
+    flex: 1 0 auto;
 }

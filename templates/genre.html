@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} 
 
-<h2>Record Collection</h2>
+{% for genre in genres %} 
+
+<div class="row">
+  <div class="col s12 genre_header">
+    <h2>{{genre.genre_name}}</h2>
+  </div>
+</div>
+
+{% for record in records %} 
+{% if genre.genre_name == record.genre %}
+
 <ul class="collapsible">
-  {% for record in records %}
   <li>
     <div class="collapsible-header row">
       <div class="col s9 record_header">
@@ -31,34 +40,38 @@
       </div>
     </div>
     <div class="collapsible-body">
-        <div class="row">
-            <div class="col s3">
-                <ul>
-                    <li>
-                        <i class="material-icons">label</i>
-                        Label: {{record.label}}</li>
-                    <li>
-                        <i class="material-icons">date_range</i>
-                        Year: {{record.year}}
-                    </li>
-                    <li>
-                        <i class="material-icons">music_note</i>
-                        Genre: {{record.genre}}
-                    </li>
-                    <li>
-                        <i class="material-icons">star</i>
-                        Rating: {{record.star_rating}}
-                    </li>
-                </ul>
-            </div>
-            <div class="col s9">
-                <h6>Review</h6>
-                <p>{{record.review}}</p>
-            </div>
+      <div class="row">
+        <div class="col s3">
+          <ul>
+            <li>
+              <i class="material-icons">label</i>
+              Label: {{record.label}}
+            </li>
+            <li>
+              <i class="material-icons">date_range</i>
+              Year: {{record.year}}
+            </li>
+            <li>
+              <i class="material-icons">music_note</i>
+              Genre: {{record.genre}}
+            </li>
+            <li>
+              <i class="material-icons">star</i>
+              Rating: {{record.star_rating}}
+            </li>
+          </ul>
         </div>
+        <div class="col s9">
+          <h6>Review</h6>
+          <p>{{record.review}}</p>
+        </div>
+      </div>
     </div>
   </li>
-  {% endfor %}
 </ul>
+
+{% endif %}
+{% endfor %}
+{% endfor %}
 
 {% endblock %}
