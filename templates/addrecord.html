@@ -6,7 +6,7 @@
 <div class="row">
   <form action="{{url_for('insert_record')}}" method="POST" class="col s12">
     <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12 m6">
                 <input
                 name="record_title"
                 id="record_title"
@@ -15,7 +15,7 @@
                 placeholder="Record Title"
                 />
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12 m6">
                 <input
                 name="artist_name"
                 id="artist_name"
@@ -24,15 +24,15 @@
                 placeholder="Artist Name"
                 />
             </div>
-            <div class="input-field col s12">
+            <div class="input-field col s6">
                 <input name="label" id="label" type="text" class="validate" placeholder="Label" />
             </div>
-            <div class="col s12">
+            <div class="input-field col s6">
                 <input
                 id="year"
                 name="year"
                 type="text"
-                class="yearpicker"
+                class="validate"
                 placeholder="Release Date (yyyy)"
                 />
             </div>
@@ -43,6 +43,15 @@
                 <option value="{{genre.genre_name}}">{{genre.genre_name}}</option>
                 {% endfor %}
                 </select>
+            </div>
+            <div class="input-field col s12">
+                <input
+                id="album_art"
+                name="album_art"
+                type="text"
+                class="validate"
+                placeholder="Share a link to the album artwork..."
+                />
             </div>
             <div class="input-field col s12">
                 <input

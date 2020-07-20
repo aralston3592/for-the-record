@@ -15,12 +15,16 @@
 
 <ul class="collapsible">
   <li>
+    
     <div class="collapsible-header row">
-      <div class="col s9 record_header">
+      <div class="col s12 m3 l3">
+        <img src="{{record.album_art}}" alt="No Album Art Available">
+      </div>
+      <div class="col s12 m6 l6 record_header">
         <h4><strong>{{record.record_title}}</strong></h4>
         <h5>{{record.artist_name}}</h5>
       </div>
-      <div class="col s3">
+      <div class="col s12 m3 l3">
         <a
           href="{{url_for('edit_record', record_id=record._id)}}"
           class="waves-effect waves-light btn orange lighten-1"

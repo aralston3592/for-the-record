@@ -34,6 +34,11 @@ nav .brand-logo {
     padding-bottom: 4em;
 }
 
+img {
+    max-height: 150px;
+    max-width: 150px;
+}
+
 .page-footer {
     background-color: #2d5504
 }

@@ -51,7 +51,8 @@ def update_record(record_id):
                         'genre': request.form.get('genre'),
                         'get_it_here': request.form.get('get_it_here'),
                         'star_rating': request.form.get('star_rating'),
-                        'review': request.form.get('review')
+                        'review': request.form.get('review'),
+                        'album_art':request.form.get('album_art')
                    })
     return redirect(url_for('get_records'))
 
