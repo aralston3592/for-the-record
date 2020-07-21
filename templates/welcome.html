@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <script src="https://kit.fontawesome.com/2ecfcb735e.js" crossorigin="anonymous"></script>
+
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+      type="text/css"
+    />
+
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
+    <title>For The Record</title>
+  </head>
+  <body class="welcome">
+    <div class="row welcome-btns">
+        <div class="login col s6">
+            <a href="{{url_for('login')}}" class="welcome-btn waves-effect waves-light btn-large">Log In</a>
+        </div>
+        <div class="register col s6">
+            <a href="{{url_for('register')}}" class="welcome-btn waves-effect waves-light btn-large">Register</a>
+        </div>
+    </div>
+  </body>
+</html>

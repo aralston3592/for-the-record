@@ -25,10 +25,13 @@
     <title>For The Record</title>
   </head>
   <body>
+
+<!-------------------------------------------------------------------------------------------------------NAVBAR-->
+
     <nav>
       <div class="nav-wrapper row">
         <a href="{{url_for('get_records')}}" class="brand-logo hide-on-med-and-down">
-            For The Record<i class="fas fa-record-vinyl icon"></i></a>
+            For The Record...<i class="fas fa-record-vinyl icon"></i></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"
           ><i class="fas fa-record-vinyl icon"></i></a
         >
@@ -36,6 +39,11 @@
           <li><a href="{{url_for('get_records')}}">Record Collection</a></li>
           <li><a href="{{url_for('add_record')}}">Add Record</a></li>
           <li><a href="{{url_for('get_genres')}}">Genres</a></li>
+          {%if session['username']%}
+            <li><a href="#">Logout</a></li>
+          {%else%}
+            <li><a href="{{url_for('login')}}">Login</a></li>
+          {% endif %}
         </ul>
 
         <ul class="sidenav" id="mobile-demo">
@@ -45,10 +53,15 @@
         </ul>
       </div>
     </nav>
+
+<!-------------------------------------------------------------------------------------------------------/NAVBAR-->
+
     <div class="container row">
       {% block content %} {% endblock %}
     </div>
 
+<!--------------------------------------------------------------------------------------------------------FOOTER-->
+    
     <footer class="page-footer">
           <div class="container">
             <div class="row">
@@ -70,6 +83,9 @@
             </div>
           </div>
         </footer>
+
+<!--------------------------------------------------------------------------------------------------------/FOOTER-->
+
     <script
       src="https://code.jquery.com/jquery-3.5.1.js"
       integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="

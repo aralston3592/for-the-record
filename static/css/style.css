@@ -8,11 +8,32 @@ body {
     flex-direction: column;
 }
 
+.welcome { 
+    background: url(/static/img/records.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/*--------------------------------------------------------------------------------------------------WELCOME PAGE*/
+
+.welcome-btns {
+    padding-top: 45vh;
+}
+
+.welcome-btn {
+    border-radius: 4rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-width: 10rem;
+}
+
+
 /*--------------------------------------------------------------------------------------------------NAVBAR*/
 
 .icon {
     font-size: 6rem;
-    color: #000
+    color: #000;
 }
 
 nav .brand-logo {
@@ -22,8 +43,7 @@ nav .brand-logo {
 
  .sidenav {
      color: #6e8f4d;
-     background-color: #d8cfcf;
-     
+     background-color: #d8cfcf;     
  }
 
 .nav-wrapper {
@@ -33,6 +53,14 @@ nav .brand-logo {
 }
 
 /*--------------------------------------------------------------------------------------------------BUTTONS*/
+
+.cta-btn {
+    background-color: #6e8f4d;
+}
+
+.cta-btn:hover {
+    background-color: #6eb329;
+}
 
 .btn {
     border-radius: 4rem;
@@ -75,21 +103,20 @@ input[type=text]:not(.browser-default) {
 
 input[type=range]::-webkit-slider-thumb {
     background-color: #6e8f4d;
-  }
-  input[type=range]::-moz-range-thumb {
+}
+  
+input[type=range]::-moz-range-thumb {
     background-color: #6e8f4d;
-  }
-  input[type=range]::-ms-thumb {
+}
+  
+input[type=range]::-ms-thumb {
     background-color: #6e8f4d;
-  }
+}
 
-  /***** These are to edit the thumb and the text inside the thumb *****/
-  input[type=range] + .thumb {
-    background-color: #dedede;
-  }
-  input[type=range] + .thumb.active .value {
-    color:#6e8f4d;
-  }
+input[type=range] + .thumb {
+    background-color: #6e8f4d;
+}
+
 
 /*--------------------------------------------------------------------------------------------------GENRES*/
 

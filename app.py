@@ -18,17 +18,17 @@ mongo = PyMongo(app)
 def index():
     if 'username' in session:
         return render_template('records.html')
-    
-    return render_template('register.html')
+
+    return render_template('welcome.html')
 
 
 @app.route('/login', methods=['POST'])
 def login():
     users = mongo.db.users
-    login_user = users.find_one({'name': request.form['username']})
+    login_user = users.find_one({'username': request.form['username']})
 
     if login_user:
-        if bcrypt.hashpw(request.form['pass'].encode('utf-8'),
+        if bcrypt.hashpw(request.form['password'].encode('utf-8'),
                          login_user['password']) == login_user['password']:
             session['username'] = request.form['username']
             return redirect(url_for('get_records'))
@@ -45,14 +45,23 @@ def register():
         if existing_user is None:
             hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'),
                                      bcrypt.gensalt())
-            users.insert({'username': request.form['username'],
-                          'password': hashpass})
+            users.insert({'first_name': request.form['first_name'],
+                          'last_name': request.form['last_name'],
+                          'username': request.form['username'],
+                          'email': request.form['email'],
+                          'password': hashpass
+                          })
             session['username'] = request.form['username']
             return redirect(url_for('get_records'))
 
         return 'That username already exists!'
 
     return render_template('register.html')
+
+
+# @app.route('/logout')
+# def logout():
+
 
 
 @app.route('/get_records')
@@ -93,7 +102,7 @@ def update_record(record_id):
                         'get_it_here': request.form.get('get_it_here'),
                         'star_rating': request.form.get('star_rating'),
                         'review': request.form.get('review'),
-                        'album_art':request.form.get('album_art')
+                        'album_art': request.form.get('album_art')
                    })
     return redirect(url_for('get_records'))
 
