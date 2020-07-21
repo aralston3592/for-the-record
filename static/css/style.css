@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Rowdies:wght@300;400;700&display=swap');
 
 body {
+    background-color: #d8cfcf; 
     font-family: 'Lato', sans-serif;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
 }
+
+/*--------------------------------------------------------------------------------------------------NAVBAR*/
 
 .icon {
     font-size: 6rem;
@@ -17,21 +20,46 @@ nav .brand-logo {
     padding-right: 4rem;
 }
 
+ .sidenav {
+     color: #6e8f4d;
+     background-color: #d8cfcf;
+     
+ }
+
 .nav-wrapper {
-    background-color: #2d5504;
+    background-color: #6e8f4d;
     font-family: 'Rowdies', sans-serif;
     font-weight: 300;
 }
+
+/*--------------------------------------------------------------------------------------------------BUTTONS*/
 
 .btn {
     border-radius: 4rem;
     margin-top: 10px;
     display: block;
     min-width: 12em;
+    max-width: 16em;
+}
+
+/*--------------------------------------------------------------------------------------------------COLLAPSE*/
+
+.collapsible {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+}
+
+.collapsible-header {
+    border: none;
+    border-radius: 2rem;
 }
 
 .collapsible-body {
     padding-bottom: 4em;
+    border: none;
+    background-color: #d8cfcf;
+    border-radius: 2rem;
 }
 
 img {
@@ -39,10 +67,46 @@ img {
     max-width: 150px;
 }
 
+/*--------------------------------------------------------------------------------------------------FORMS*/
+
+input[type=text]:not(.browser-default) {
+    border-bottom: 1px solid #6e8f4d;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    background-color: #6e8f4d;
+  }
+  input[type=range]::-moz-range-thumb {
+    background-color: #6e8f4d;
+  }
+  input[type=range]::-ms-thumb {
+    background-color: #6e8f4d;
+  }
+
+  /***** These are to edit the thumb and the text inside the thumb *****/
+  input[type=range] + .thumb {
+    background-color: #dedede;
+  }
+  input[type=range] + .thumb.active .value {
+    color:#6e8f4d;
+  }
+
+/*--------------------------------------------------------------------------------------------------GENRES*/
+
+.genre-header, a{
+    color: #6e8f4d;
+}
+
+/*--------------------------------------------------------------------------------------------------FOOTER*/
+
 .page-footer {
-    background-color: #2d5504
+    background-color: #6e8f4d;
 }
 
 main {
     flex: 1 0 auto;
+}
+
+::placeholder {
+    color: #000;
 }
