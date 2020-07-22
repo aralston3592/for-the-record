@@ -18,6 +18,15 @@ body {
 
 /*--------------------------------------------------------------------------------------------------WELCOME PAGE*/
 
+.welcome-heading {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color:  #6e8f4d;
+    font-family: 'Rowdies', sans-serif;
+    font-weight: 300;
+}
+
 .welcome-btns {
     padding-top: 45vh;
 }
@@ -28,6 +37,9 @@ body {
     min-width: 10rem;
 }
 
+.welcome_btn:hover {
+    background-color: #6e8f4d;
+}
 
 /*--------------------------------------------------------------------------------------------------NAVBAR*/
 
@@ -97,7 +109,19 @@ img {
 
 /*--------------------------------------------------------------------------------------------------FORMS*/
 
-input[type=text]:not(.browser-default) {
+
+input[type=text]:not(.browser-default),
+input[type=password]:not(.browser-default),
+input[type=email]:not(.browser-default),
+textarea.materialize-textarea,
+input[type=range] {
+    border-bottom: 1px solid #6e8f4d;
+    border-radius: 1rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;}
+
+input[type=range] {
     border-bottom: 1px solid #6e8f4d;
 }
 
@@ -117,6 +141,18 @@ input[type=range] + .thumb {
     background-color: #6e8f4d;
 }
 
+::placeholder {
+    color: #000;
+}
+
+.select-wrapper input.select-dropdown:focus {
+    border-bottom: 1px solid #6eb329;
+}
+
+.select-genre {
+    padding-left: 2rem
+}
+
 
 /*--------------------------------------------------------------------------------------------------GENRES*/
 
@@ -132,8 +168,4 @@ input[type=range] + .thumb {
 
 main {
     flex: 1 0 auto;
-}
-
-::placeholder {
-    color: #000;
 }

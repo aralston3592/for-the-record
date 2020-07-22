@@ -1,5 +1,7 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session
+from flask import Flask, render_template, redirect, request, url_for, session, flash
+
+
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 import bcrypt
@@ -17,9 +19,14 @@ mongo = PyMongo(app)
 @app.route('/')
 def index():
     if 'username' in session:
-        return render_template('records.html')
+        return redirect('get_records')
 
     return render_template('welcome.html')
+
+
+@app.route('/login_page')
+def login_page():
+    return render_template('login.html')
 
 
 @app.route('/login', methods=['POST'])
@@ -33,7 +40,8 @@ def login():
             session['username'] = request.form['username']
             return redirect(url_for('get_records'))
 
-    return 'Invalid username or password'
+    flash('Invalid username or password')
+    return render_template('login.html')
 
 
 @app.route('/register', methods=['POST', 'GET'])
@@ -59,9 +67,11 @@ def register():
     return render_template('register.html')
 
 
-# @app.route('/logout')
-# def logout():
-
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash('You were logged out!')
+    return render_template('welcome.html')
 
 
 @app.route('/get_records')

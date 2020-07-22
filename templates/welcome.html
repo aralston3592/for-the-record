@@ -25,13 +25,21 @@
     <title>For The Record</title>
   </head>
   <body class="welcome">
+
     <div class="row welcome-btns">
         <div class="login col s6">
-            <a href="{{url_for('login')}}" class="welcome-btn waves-effect waves-light btn-large">Log In</a>
+            <a href="{{url_for('login_page')}}" class="welcome-btn waves-effect waves-light btn-large">Log In</a>
         </div>
         <div class="register col s6">
             <a href="{{url_for('register')}}" class="welcome-btn waves-effect waves-light btn-large">Register</a>
         </div>
     </div>
+
+    <div class="row welcome-heading">
+        <div class="col s4">
+            <h1>For The Record...</h1>
+        </div>
+    </div>
+
   </body>
 </html>
