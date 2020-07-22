@@ -12,6 +12,7 @@ app = Flask(__name__)
 
 app.config["DBS_NAME"] = 'on_the_record'
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
+app.secret_key = os.getenv("SECRET_KEY")
 
 mongo = PyMongo(app)
 
@@ -150,7 +151,6 @@ def get_records_in_genre(genre):
 
 
 if __name__ == "__main__":
-    app.secret_key = 'ralston35'
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)

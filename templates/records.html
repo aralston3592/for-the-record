@@ -14,7 +14,7 @@
           <h4><strong>{{record.record_title}}</strong></h4>
           <h5>{{record.artist_name}}</h5>
         </div>
-        <div class="col s12 m12 l3">
+        <div class="col m12 l3 hide-on-small-and-down">
           <a
             href="{{url_for('edit_record', record_id=record._id)}}"
             class="waves-effect waves-light btn orange lighten-1"
@@ -23,7 +23,7 @@
           <a
             target="_blank"
             href="{{record.get_it_here}}"
-            class="waves-effect waves-light btn light-green accent-4"
+            class="waves-effect waves-light btn green accent-4"
             ><i class="material-icons right">shopping_basket</i>Buy!</a
           >
           <a
@@ -31,6 +31,13 @@
             class="waves-effect waves-light btn btn_small red"
             ><i class="material-icons right">delete</i>Remove</a
           >
+        </div>
+        <div class="hide-on-med-and-up">
+            <div class="col s12">
+                <a href="{{url_for('edit_record', record_id=record._id)}}" class="btn-floating btn-large waves-effect waves-light orange lighten-1"><i class="material-icons">update</i></a>
+                <a href="{{record.get_it_here}}" class="btn-floating btn-large waves-effect waves-light green accent-4"><i class="material-icons">shopping_basket</i></a>
+                <a href="{{url_for('delete_record', record_id=record._id)}}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
+            </div>
         </div>
       </div>
       <div class="collapsible-body">

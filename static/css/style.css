@@ -8,15 +8,17 @@ body {
     flex-direction: column;
 }
 
+/*--------------------------------------------------------------------------------------------------WELCOME PAGE*/
+
 .welcome { 
     background: url(/static/img/records.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    left: 0;
+    bottom: 0;
 }
-
-/*--------------------------------------------------------------------------------------------------WELCOME PAGE*/
 
 .welcome-heading {
     position: absolute;
@@ -37,8 +39,9 @@ body {
     min-width: 10rem;
 }
 
-.welcome_btn:hover {
+.welcome-btn:hover {
     background-color: #6e8f4d;
+    color: #fff;
 }
 
 /*--------------------------------------------------------------------------------------------------NAVBAR*/
@@ -78,8 +81,13 @@ nav .brand-logo {
     border-radius: 4rem;
     margin-top: 10px;
     display: block;
-    min-width: 12em;
     max-width: 16em;
+}
+
+.btn-floating.btn-large {
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+    display: block;
 }
 
 /*--------------------------------------------------------------------------------------------------COLLAPSE*/
