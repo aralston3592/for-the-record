@@ -10,38 +10,64 @@
   </div>
 </div>
 
+<!--------------------------------------------------------------------------------------------SHOW ALL RECORDS IN SELECTED GENRE-->
+
 {% for record in records %} 
 {% if genre.genre_name == record.genre %}
 
 <ul class="collapsible">
   <li>
-    
+
+<!--------------------------------------------------------------------------------------------RECORD HEADER-->
+
     <div class="collapsible-header row">
-      <div class="col s12 m3 l3">
-        <img src="{{record.album_art}}" alt="No Album Art Available">
-      </div>
-      <div class="col s12 m6 l6 record_header">
-        <h4><strong>{{record.record_title}}</strong></h4>
-        <h5>{{record.artist_name}}</h5>
-      </div>
-      <div class="col s12 m3 l3">
-        <a
-          href="{{url_for('edit_record', record_id=record._id)}}"
-          class="waves-effect waves-light btn orange lighten-1"
-          ><i class="material-icons right">update</i>Update</a
-        >
-        <a
-          target="_blank"
-          href="{{record.get_it_here}}"
-          class="waves-effect waves-light btn light-green accent-4"
-          ><i class="material-icons right">shopping_basket</i>Buy!</a
-        >
-        <a
-          href="{{url_for('delete_record', record_id=record._id)}}"
-          class="waves-effect waves-light btn btn_small red"
-          ><i class="material-icons right">delete</i>Remove</a
-        >
-      </div>
+        <div class="col s12 m12 l3">
+          <img src="{{record.album_art}}" alt="{{record.record_title}} - {{record.artist_name}}" />
+        </div>
+        <div class="col s12 m12 l6 hide-on-med-and-down record_header">
+          <h4><strong>{{record.record_title}}</strong></h4>
+          <h5>{{record.artist_name}}</h5>
+        </div>
+
+<!--------------------------------------------------------------------------------------------/RECORD HEADER-->
+
+<!--------------------------------------------------------------------------------------------BUTTONS FOR TABLET AND UP-->
+    
+        <div class="col m12 l3 hide-on-small-and-down">
+          <a
+            href="{{url_for('edit_record', record_id=record._id)}}"
+            class="waves-effect waves-light btn orange lighten-1"
+            ><i class="material-icons right">update</i>Update</a
+          >
+          <a
+            target="_blank"
+            href="{{record.get_it_here}}"
+            class="waves-effect waves-light btn green accent-4"
+            ><i class="material-icons right">shopping_basket</i>Buy!</a
+          >
+          <a
+            href="{{url_for('delete_record', record_id=record._id)}}"
+            class="waves-effect waves-light btn btn_small red"
+            ><i class="material-icons right">delete</i>Remove</a
+          >
+        </div>
+
+<!--------------------------------------------------------------------------------------------/BUTTONS FOR TABLET AND UP-->
+
+<!--------------------------------------------------------------------------------------------BUTTONS FOR MOBILE-->
+
+        <div class="hide-on-med-and-up">
+            <div class="col s12">
+                <a href="{{url_for('edit_record', record_id=record._id)}}" class="btn-floating btn-large waves-effect waves-light orange lighten-1"><i class="material-icons">update</i></a>
+                <a href="{{record.get_it_here}}" class="btn-floating btn-large waves-effect waves-light green accent-4"><i class="material-icons">shopping_basket</i></a>
+                <a href="{{url_for('delete_record', record_id=record._id)}}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
+            </div>
+        </div>
+
+<!--------------------------------------------------------------------------------------------/BUTTONS FOR MOBILE-->
+
+<!--------------------------------------------------------------------------------------------RECORD INFO-->
+
     </div>
     <div class="collapsible-body">
       <div class="row">
@@ -71,8 +97,13 @@
         </div>
       </div>
     </div>
+
+<!--------------------------------------------------------------------------------------------/RECORD INFO-->
+
   </li>
 </ul>
+
+<!--------------------------------------------------------------------------------------------/SHOW ALL RECORD IN SELECTED GENRE-->
 
 {% endif %}
 {% endfor %}

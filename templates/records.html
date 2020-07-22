@@ -3,6 +3,9 @@
 {% extends 'base.html' %} {% block content %}
 
 <h2>Record Collection</h2>
+
+<!--------------------------------------------------------------------------------------------RECORD HEADER-->
+
 <ul class="collapsible">
   {% for record in records %}
   <li>
@@ -14,6 +17,11 @@
           <h4><strong>{{record.record_title}}</strong></h4>
           <h5>{{record.artist_name}}</h5>
         </div>
+
+<!--------------------------------------------------------------------------------------------/RECORD HEADER-->
+
+<!--------------------------------------------------------------------------------------------BUTTONS FOR TABLET AND UP-->
+    
         <div class="col m12 l3 hide-on-small-and-down">
           <a
             href="{{url_for('edit_record', record_id=record._id)}}"
@@ -32,6 +40,11 @@
             ><i class="material-icons right">delete</i>Remove</a
           >
         </div>
+
+<!--------------------------------------------------------------------------------------------/BUTTONS FOR TABLET AND UP-->
+
+<!--------------------------------------------------------------------------------------------BUTTONS FOR MOBILE-->
+
         <div class="hide-on-med-and-up">
             <div class="col s12">
                 <a href="{{url_for('edit_record', record_id=record._id)}}" class="btn-floating btn-large waves-effect waves-light orange lighten-1"><i class="material-icons">update</i></a>
@@ -39,6 +52,11 @@
                 <a href="{{url_for('delete_record', record_id=record._id)}}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
             </div>
         </div>
+
+<!--------------------------------------------------------------------------------------------/BUTTONS FOR MOBILE-->
+
+<!--------------------------------------------------------------------------------------------RECORD INFO-->
+
       </div>
       <div class="collapsible-body">
         <div class="row">
@@ -68,6 +86,9 @@
           </div>
         </div>
       </div>
+
+<!--------------------------------------------------------------------------------------------/RECORD INFO-->
+
   </li>
   {% endfor %}
 </ul>

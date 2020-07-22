@@ -8,13 +8,16 @@ import bcrypt
 if os.path.exists("env.py"):
     import env
 
+SECRET_KEY = os.environ.get("SECRET_KEY")
+MONGO_URI = os.environ.get("MONGO_URI")
+
 app = Flask(__name__)
 
 app.config["DBS_NAME"] = 'on_the_record'
-app.config["MONGO_URI"] = os.getenv("MONGO_URI")
-app.secret_key = os.getenv("SECRET_KEY")
 
 mongo = PyMongo(app)
+
+# RENDER WELCOME PAGE ON STARTUP
 
 
 @app.route('/')
@@ -24,10 +27,14 @@ def index():
 
     return render_template('welcome.html')
 
+# RENDER LOG IN PAGE
+
 
 @app.route('/login_page')
 def login_page():
     return render_template('login.html')
+
+# CHECK USER LOGIN CREDENTIALS
 
 
 @app.route('/login', methods=['POST'])
@@ -43,6 +50,8 @@ def login():
 
     flash('Invalid username or password')
     return render_template('login.html')
+
+# REGISTER NEW USER
 
 
 @app.route('/register', methods=['POST', 'GET'])
@@ -67,6 +76,8 @@ def register():
 
     return render_template('register.html')
 
+# LOG OUT USER
+
 
 @app.route('/logout')
 def logout():
@@ -74,15 +85,21 @@ def logout():
     flash('You were logged out!')
     return render_template('welcome.html')
 
+# SHOW RECORDS IN COLLECTION
+
 
 @app.route('/get_records')
 def get_records():
     return render_template("records.html", records=mongo.db.records.find())
 
+# RENDER PAGE TO ADD RECORD TO COLLECTION
+
 
 @app.route('/add_record')
 def add_record():
     return render_template("addrecord.html", genres=mongo.db.genres.find())
+
+# ACCEPT FORM INPUTS AND INSERT RECORD
 
 
 @app.route('/insert_record', methods=["POST"])
@@ -91,6 +108,8 @@ def insert_record():
     records.insert_one(request.form.to_dict())
     return redirect(url_for('get_records'))
 
+# RENDER PAGE TO EDIT RECORD IN THE COLLECTION
+
 
 @app.route('/edit_record/<record_id>')
 def edit_record(record_id):
@@ -98,6 +117,8 @@ def edit_record(record_id):
     all_genres = mongo.db.genres.find()
     return render_template('editrecord.html',
                            record=the_record, genres=all_genres)
+
+# ACCEPT FORM INPUTS AND UPDATE RECORD
 
 
 @app.route('/update_record/<record_id>', methods=["POST"])
@@ -117,11 +138,15 @@ def update_record(record_id):
                    })
     return redirect(url_for('get_records'))
 
+# REMOVE SELECTED RECORD
+
 
 @app.route('/delete_record/<record_id>')
 def delete_record(record_id):
     mongo.db.records.remove({'_id': ObjectId(record_id)})
     return redirect(url_for('get_records'))
+
+# SHOW ALL GENRES IN COLLECTION
 
 
 @app.route('/get_genres')
@@ -129,10 +154,14 @@ def get_genres():
     return render_template('genres.html',
                            genres=mongo.db.genres.find())
 
+# RENDER PAGE FOR ADDING GENRE
+
 
 @app.route('/add_genre')
 def add_genre():
     return render_template('addgenre.html', genres=mongo.db.genres.find())
+
+# ACCEPT FORM INPUTS AND INSERT GENRE
 
 
 @app.route('/insert_genre', methods=["POST"])
@@ -140,6 +169,8 @@ def insert_genre():
     genres = mongo.db.genres
     genres.insert_one(request.form.to_dict())
     return redirect(url_for('get_genres'))
+
+ # SHOW ALL RECORDS OF A SELECTED GENRE
 
 
 @app.route('/get_records_in_genre/<genre>')

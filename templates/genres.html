@@ -3,6 +3,9 @@
 {% extends 'base.html' %} {% block content %}
 
 <h2>Genres</h2>
+
+<!--------------------------------------------------------------------------------------------SHOW ALL GENRES-->
+
 <ul>
   {% for genre in genres %}
   <li>
@@ -17,5 +20,7 @@
 <div class="row">
     <a href="{{url_for('add_genre')}}" class="cta-btn btn col s6">Add Genre</a>
 </div>
+
+<!--------------------------------------------------------------------------------------------/SHOW ALL GENRES-->
 
 {% endblock %}
