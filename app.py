@@ -1,23 +1,21 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session, flash
-
-
+from flask import Flask, render_template, redirect, request, url_for
+from flask import session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 import bcrypt
 if os.path.exists("env.py"):
     import env
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
-MONGO_URI = os.environ.get("MONGO_URI")
-
 app = Flask(__name__)
 
 app.config["DBS_NAME"] = 'on_the_record'
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
+app.secret_key = os.getenv("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-# RENDER WELCOME PAGE ON STARTUP
+# RENDER WELCOME PAGE ON START UP
 
 
 @app.route('/')
@@ -47,8 +45,9 @@ def login():
                          login_user['password']) == login_user['password']:
             session['username'] = request.form['username']
             return redirect(url_for('get_records'))
-
-    flash('Invalid username or password')
+    # SEND NEW USER TO REGISTER
+    error_message = ('Invalid username or password')
+    
     return render_template('login.html')
 
 # REGISTER NEW USER
@@ -170,7 +169,7 @@ def insert_genre():
     genres.insert_one(request.form.to_dict())
     return redirect(url_for('get_genres'))
 
- # SHOW ALL RECORDS OF A SELECTED GENRE
+# SHOW ALL RECORDS OF A SELECTED GENRE
 
 
 @app.route('/get_records_in_genre/<genre>')

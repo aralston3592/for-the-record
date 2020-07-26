@@ -4,6 +4,21 @@
 
 <h2>Record Collection</h2>
 
+<div class="row">
+    <div class="col s4"></div>
+    <div class="input-field col s6">
+        <select>
+        <option value="" disabled selected>Sort records by...</option>
+        <option value="{{url_for('login')}}"><a href="{{url_for('login')}}">By Artist</a></option>
+        <option value="2">By Label</option>
+        <option value="3">By Year</option>
+        <option value="4">By Genre</option>
+        <option value="5">By Star Rating</option>
+        </select>
+    </div>
+    <div class="cta-btn btn col s2" type="submit">Sort</div>
+</div>
+
 <!--------------------------------------------------------------------------------------------RECORD HEADER-->
 
 <ul class="collapsible">
