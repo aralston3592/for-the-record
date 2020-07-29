@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %} {% block content %} 
+
+{% for record in records %}
+
+<h1>{{record.record_title}}</h1>
+
+{% endfor %}
+
+{% endblock %}

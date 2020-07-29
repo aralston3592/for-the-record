@@ -46,8 +46,8 @@ def login():
             session['username'] = request.form['username']
             return redirect(url_for('get_records'))
     # SEND NEW USER TO REGISTER
-    error_message = ('Invalid username or password')
-    
+    ('Invalid username or password')
+
     return render_template('login.html')
 
 # REGISTER NEW USER
@@ -142,8 +142,17 @@ def update_record(record_id):
 
 @app.route('/delete_record/<record_id>')
 def delete_record(record_id):
-    mongo.db.records.remove({'_id': ObjectId(record_id)})
+    mongo.db.records.delete_one({'_id': ObjectId(record_id)})
     return redirect(url_for('get_records'))
+
+# DISPLAY RECORD ON DEVOTED PAGE BY SELECTING RECORD
+
+
+@app.route('/get_record/<record_id>')
+def get_record(record_id):
+    mongo.db.records.find_one({'_id': ObjectId(record_id)})
+    return render_template('record.html')
+
 
 # SHOW ALL GENRES IN COLLECTION
 

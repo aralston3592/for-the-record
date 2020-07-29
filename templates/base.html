@@ -51,7 +51,7 @@
           <li><a href="{{url_for('add_record')}}">Add Record</a></li>
           <li><a href="{{url_for('get_genres')}}">Genres</a></li>
           {%if session['username']%}
-            <li><a href="#">Logout</a></li>
+            <li><a href="{{url_for('logout')}}">Logout</a></li>
           {%else%}
             <li><a href="{{url_for('login_page')}}">Login</a></li>
           {% endif %}
@@ -102,6 +102,7 @@
         $(".collapsible").collapsible();
         $("select").formSelect();
         $('.sidenav').sidenav();
+        $('.modal').modal();
       });
     </script>
   </body>
