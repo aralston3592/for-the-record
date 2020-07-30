@@ -5,46 +5,55 @@
 
 <!--------------------------------------------------------------------------------------------LOG IN FORM-->
 
-<div class="row">
-
+<div class="container">
+  <div class="row">
     <div class="error-message">
-        {{ error_message }}
+      {{ error_message }}
     </div>
 
-            <form action="{{url_for('login')}}" method="POST" class="col s12">
-                <div class="row">
-                <div class="input-field col s12">
-                    <input
-                    placeholder="Username"
-                    name="username"
-                    id="username"
-                    type="text"
-                    class="validate"
-                    required
-                    />
-                </div>
-                </div>
-                <div class="row">
-                <div class="input-field col s12">
-                    <input
-                    placeholder="Password"
-                    name="password"
-                    id="password"
-                    type="password"
-                    class="validate"
-                    required
-                    />
-                </div>
-                </div>
-                <div class="row">
-                <button class="cta-btn btn waves-effect waves-light" type="submit">
+    <form action="{{url_for('login')}}" method="POST" class="col s12">
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+          <input
+            placeholder="Username"
+            name="username"
+            id="username"
+            type="text"
+            class="validate"
+            required
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+          <input
+            placeholder="Password"
+            name="password"
+            id="password"
+            type="password"
+            class="validate"
+            required
+          />
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+            <div class="col s10 offset-s1 m3 offset-m3">
+                <button class="lp-btn cta-btn btn waves-effect waves-light" type="submit">
                     Log In
                     <i class="material-icons right">check</i>
                 </button>
-                </div>
-            </form>
-
-
+            </div>
+            <div class="col s10 offset-s1 m3">
+                <a href="{{url_for('register')}}" class="lp-btn cta-btn btn waves-effect waves-light">
+                    Register
+                    <i class="material-icons right">playlist_add_check</i>
+                </a>
+            </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 
 <!--------------------------------------------------------------------------------------------/LOG IN FORM-->

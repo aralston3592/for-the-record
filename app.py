@@ -150,8 +150,8 @@ def delete_record(record_id):
 
 @app.route('/get_record/<record_id>')
 def get_record(record_id):
-    mongo.db.records.find_one({'_id': ObjectId(record_id)})
-    return render_template('record.html')
+    record = mongo.db.records.find_one({'_id': ObjectId(record_id)})
+    return render_template('record.html', record=record)
 
 
 # SHOW ALL GENRES IN COLLECTION
@@ -175,7 +175,12 @@ def add_genre():
 @app.route('/insert_genre', methods=["POST"])
 def insert_genre():
     genres = mongo.db.genres
-    genres.insert_one(request.form.to_dict())
+    existing_genre = genres.find_one({
+                                'genre_name': request.form
+                                ['genre_name'].capitalize()})
+
+    if existing_genre is None:
+        genres.insert_one(request.form.to_dict())
     return redirect(url_for('get_genres'))
 
 # SHOW ALL RECORDS OF A SELECTED GENRE

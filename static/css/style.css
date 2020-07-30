@@ -8,6 +8,14 @@ body {
     flex-direction: column;
 }
 
+h2 {
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+}
+
 /*--------------------------------------------------------------------------------------------------WELCOME PAGE*/
 
 .welcome { 
@@ -44,15 +52,6 @@ body {
     color: #fff;
 }
 
-/*--------------------------------------------------------------------------------------------------RECORD INFO*/
-
-.collapsible-header {
-    margin-bottom: 1rem;
-}
-
-.review {
-    margin-top: 0.5rem;
-}
 
 /*--------------------------------------------------------------------------------------------------NAVBAR*/
 
@@ -79,6 +78,13 @@ nav .brand-logo {
 
 /*--------------------------------------------------------------------------------------------------BUTTONS*/
 
+.lp-btn.cta-btn {
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Rowdies', sans-serif;
+    width: 90%;
+}
+
 .cta-btn {
     background-color: #167b71;
 }
@@ -94,43 +100,43 @@ nav .brand-logo {
     max-width: 16em;
 }
 
-.btn-floating.btn-large {
-    margin-top: 0.35rem;
+.btn-floating .btn-large {
+    margin-top: 0.9rem;
     padding-left: 0.5rem;
     margin-bottom: 0.5rem;
     display: block;
-    width: 3rem;
-    height: 3rem;
+    width: 4rem;
+    height: 4rem;
+
 }
 
 .btn-floating.btn-large i {
-    line-height: 0rem;
+    margin-right: 0.5rem;
 }
 
-/*--------------------------------------------------------------------------------------------------COLLAPSE*/
-
-.collapsible {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    border: none;
+.c-btn-text{
+    margin: 1rem 0 1rem 0;
 }
 
-.collapsible-header {
-    border: none;
-    border-radius: 2rem;
-}
+/*--------------------------------------------------------------------------------------------------CARDS*/
 
-.collapsible-body {
-    padding-bottom: 4em;
+
+.col.card {
     border: none;
     background-color: #d8cfcf;
-    border-radius: 2rem;
+    color: #000;
+    min-height: 30rem;
+}
+
+.card .card-reveal {
+    background-color: #167b71;
+    color: #d8cfcf;
 }
 
 img {
-    max-height: 150px;
-    max-width: 150px;
+    margin-top: 5%;
 }
+
 
 /*--------------------------------------------------------------------------------------------------FORMS*/
 
@@ -195,8 +201,22 @@ main {
     flex: 1 0 auto;
 }
 
-/*-----------------------------------------------------------------------------------------------------ERROR*/
+/*-----------------------------------------------------------------------------------------------------MODAL*/
 
-.error-message {
-    color: red;
+.modal {
+    border-top: 20px solid #167b71;
+    border-bottom: 20px solid #167b71;
+    border-radius: 2rem;
+    color: #000;
+    background-color: #d8cfcf;
+    text-align: center;
 }
+
+.modal .modal-footer {
+    background-color: #d8cfcf;
+}
+
+.modal .modal-footer .btn-flat {
+    color: #167b71; 
+}
+

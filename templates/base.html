@@ -40,18 +40,29 @@
           <li><a href="{{url_for('add_record')}}">Add Record</a></li>
           <li><a href="{{url_for('get_genres')}}">Genres</a></li>
           {%if session['username']%}
-            <li><a href="{{url_for('logout')}}">Logout</a></li>
+            <li><a href="#modal1" class="modal-trigger" ata-target="modal1">Logout</a></li>
           {%else%}
             <li><a href="{{url_for('login_page')}}">Login</a></li>
           {% endif %}
         </ul>
+
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h2>Log Out?</h2>
+                <h4>Are you sure?</h4>
+            </div>
+            <div class="modal-footer">
+                <a href="{{url_for('logout')}}" class="modal-close waves-effect waves-green btn-flat">Yes</a>
+                <a href="{{url_for('get_records')}}" class="modal-close waves-effect waves-red btn-flat">No</a>
+            </div>
+        </div>
 
         <ul class="sidenav" id="mobile-demo">
           <li><a href="{{url_for('get_records')}}">Record Collection</a></li>
           <li><a href="{{url_for('add_record')}}">Add Record</a></li>
           <li><a href="{{url_for('get_genres')}}">Genres</a></li>
           {%if session['username']%}
-            <li><a href="{{url_for('logout')}}">Logout</a></li>
+            <li><a href="#modal1">Logout</a></li>
           {%else%}
             <li><a href="{{url_for('login_page')}}">Login</a></li>
           {% endif %}
@@ -61,22 +72,22 @@
 
 <!-------------------------------------------------------------------------------------------------------/NAVBAR-->
 
-    <div class="container row">
-      {% block content %} {% endblock %}
-    </div>
+       
+    {% block content %} {% endblock %}
+    
 
 <!--------------------------------------------------------------------------------------------------------FOOTER-->
     
     <footer class="page-footer">
           <div class="container">
             <div class="row">
-              <div class="col l6 m0">
+              <div class="col s12 offset-m1 m6">
                 <h5 class="white-text">For The Record...</h5>
                 <p class="grey-text text-lighten-4">Welcome to for the record, an online community where vinyl lovers
                     can recommend and discover new records. We encorage all of our users to be respectful whilst interacting
                     and sharing opinions with others.</p>
               </div>
-              <div class="col l4 offset-l2 s12">
+              <div class="col s12 offset-m1 m4">
                 <h5 class="white-text">Check these out...</h5>
                 <ul>
                   <li><a class="grey-text text-lighten-3" target="_blank" href="https://honestjons.com/shop/latest_100_arrivals">Honest Jon's</a></li>

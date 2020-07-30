@@ -5,24 +5,26 @@
 
 <!--------------------------------------------------------------------------------------------ADD GENRE FORM-->
 
-<div class="row">
-  <form action="{{url_for('insert_genre')}}" method="POST" class="col s12">
+<div class="container">
     <div class="row">
-      <div class="input-field col s12">
-        <input
-          name="genre_name"
-          id="genre_name"
-          type="text"
-          class="validate"
-          placeholder="Genre Name"
-        />
-      </div>
-      <button class="cta-btn btn waves-effect waves-light" type="submit">
-        Add Genre
-        <i class="material-icons right">playlist_add</i>
-      </button>
+    <form action="{{url_for('insert_genre')}}" method="POST" class="col s12">
+        <div class="row">
+        <div class="input-field col s12">
+            <input
+            name="genre_name"
+            id="genre_name"
+            type="text"
+            class="validate"
+            placeholder="Genre Name"
+            />
+        </div>
+        <button class="cta-btn btn waves-effect waves-light" type="submit">
+            Add Genre
+            <i class="material-icons right">playlist_add</i>
+        </button>
+        </div>
+    </form>
     </div>
-  </form>
 </div>
 
 <!--------------------------------------------------------------------------------------------ADD RECORD FORM-->

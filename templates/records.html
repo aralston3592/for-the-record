@@ -4,119 +4,113 @@
 
 <h2>Record Collection</h2>
 
-<div class="row">
-    <div class="input-field col s9">
-        <select>
+<div class="container">
+  <div class="row">
+    <div class="input-field offset-s2 col s8">
+      <select>
         <option value="" disabled selected>Sort records by...</option>
-        <option value="{{url_for('login')}}"><a href="{{url_for('login')}}">By Artist</a></option>
+        <option value="{{url_for('login')}}"
+          ><a href="{{url_for('login')}}">By Artist</a></option
+        >
         <option value="2">By Label</option>
         <option value="3">By Year</option>
         <option value="4">By Genre</option>
         <option value="5">By Star Rating</option>
-        </select>
+      </select>
     </div>
-    <button class="cta-btn btn col s3" type="submit">Sort</button>
+  </div>
 </div>
+<!--------------------------------------------------------------------------------------------RECORD CARD-->
+<div class="container">
+  <div class="row">
+    {% for record in records %}
+    <div class="col s12 m6 l4 card">
+      <div class="card-image waves-effect waves-block waves-light">
+        <a href="{{url_for('get_record', record_id=record._id)}}"
+          ><img
+            src="{{record.album_art}}"
+            alt="{{record.record_title}} - {{record.artist_name}}"
+        /></a>
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4"
+          >{{record.record_title}}<i class="material-icons right"
+            >more_vert</i
+          ></span
+        >
+        <p><a href="{{record.get_it_here}}" target="_blank">Buy Here!</a></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4"
+          >{{record.artist_name}}<i class="material-icons right">close</i></span
+        >
 
-<!--------------------------------------------------------------------------------------------RECORD HEADER-->
-<div class="row">
-    <div class="col s10 offset-s1 row">
-        <ul class="collapsible">
-        {% for record in records %}
-        <li>
-            <div class="collapsible-header">
-                    <div class="col s12">
-                        <a href="{{url_for('get_record', record_id=record._id)}}"><img src="{{record.album_art}}" alt="{{record.record_title}} - {{record.artist_name}}" /></a>
-                    </div>
-                    <div class="col hide-on-small-and-down m12">
-                        <h4>{{record.record_title}}</h4>
-                        <h5>{{record.artist_name}}</h5>
-                    </div>
-
-        <!--------------------------------------------------------------------------------------------/RECORD HEADER-->
-
-        <!--------------------------------------------------------------------------------------------BUTTONS FOR TABLET AND UP-->
-            
-                <div class="col s12 hide-on-small-and-down">
-                <a
-                    href="{{url_for('edit_record', record_id=record._id)}}"
-                    class="waves-effect waves-light btn orange lighten-1">
-                    <i class="material-icons right">update</i>Update</a
-                >
-                <a
-                    target="_blank"
-                    href="{{record.get_it_here}}"
-                    class="waves-effect waves-light btn green accent-4">
-                    <i class="material-icons right">shopping_basket</i>Buy!</a
-                >
-                <a
-                    href="#modal2"
-                    class="waves-effect waves-light btn btn_small modal-trigger red" ata-target="modal2">
-                    <i class="material-icons right">delete</i>Remove</a
-                >
-                </div>
-                <div id="modal2" class="modal">
-                    <div class="modal-content">
-                        <h4>Remove Record</h4>
-                        <p>Are you sure?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="{{url_for('delete_record', record_id=record._id)}}" class="modal-close waves-effect waves-green btn-flat">Yes</a>
-                        <a href="{{url_for('get_records')}}" class="modal-close waves-effect waves-red btn-flat">No</a>
-                    </div>
-                </div>
-
-        <!--------------------------------------------------------------------------------------------/BUTTONS FOR TABLET AND UP-->
-
-        <!--------------------------------------------------------------------------------------------BUTTONS FOR MOBILE-->
-
-                <div class="hide-on-med-and-up">
-                    <div class="col s12">
-                        <a href="{{url_for('edit_record', record_id=record._id)}}" class="btn-mobile btn-floating btn-large waves-effect waves-light orange lighten-1"><i class="material-icons">update</i></a>
-                        <a href="{{record.get_it_here}}" class="btn-mobile btn-floating btn-large waves-effect waves-light green accent-4"><i class="material-icons">shopping_basket</i></a>
-                        <a href="{{url_for('delete_record', record_id=record._id)}}" class="btn-mobile btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
-                    </div>
-                </div>
-
-        <!--------------------------------------------------------------------------------------------/BUTTONS FOR MOBILE-->
-
-        <!--------------------------------------------------------------------------------------------RECORD INFO-->
-
-            </div>
-            <div class="collapsible-body">
-                <div class="row">
-                <div class="col s12 m3">
-                    <ul>
-                    <li>
-                        <i class="material-icons">label</i>
-                        Label: {{record.label}}
-                    </li>
-                    <li>
-                        <i class="material-icons">date_range</i>
-                        Year: {{record.year}}
-                    </li>
-                    <li>
-                        <i class="material-icons">music_note</i>
-                        Genre: {{record.genre}}
-                    </li>
-                    <li>
-                        <i class="material-icons">star</i>
-                        Rating: {{record.star_rating}}
-                    </li>
-                    </ul>
-                </div>
-                <div class="review col s12 m9">
-                    <h6>Review</h6>
-                    <p>{{record.review}}</p>
-                </div>
-                </div>
-            </div>
-
-        <!--------------------------------------------------------------------------------------------/RECORD INFO-->
-
-        </li>
-        {% endfor %}
-        </ul>
+        <div class="col s12 m6">
+          <ul>
+            <li>
+              <i class="material-icons">label</i>
+              {{record.label}}
+            </li>
+            <li>
+              <i class="material-icons">date_range</i>
+              {{record.year}}
+            </li>
+          </ul>
+        </div>
+        <div class="col s12 m6">
+          <ul>
+            <li>
+              <i class="material-icons">music_note</i>
+              {{record.genre}}
+            </li>
+            <li>
+              <i class="material-icons">star</i>
+              {{record.star_rating}}
+            </li>
+          </ul>
+        </div>
+        <div class="review col s12">
+          <h6>Review</h6>
+          <p>{{record.review}}</p>
+        </div>
+        {%if session['username']%}
+        <div class="col s12">
+          <a
+            href="{{url_for('edit_record', record_id=record._id)}}"
+            class="btn-mobile btn-floating waves-effect waves-light orange lighten-1"
+            ><i class="material-icons">update</i></a
+          >
+          <a
+            href="#modal2"
+            class="btn-mobile btn-floating waves-effect waves-light modal-trigger red"
+            ata-target="modal2"
+            value="{{record._id}}"
+            ><i class="material-icons">delete</i></a
+          >
+        </div>
+        {% endif %}
+      </div>
     </div>
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <h5>Remove {{record.record_title}}</h5>
+        <h6>Are you sure?</h6>
+      </div>
+      <div class="modal-footer">
+        <a
+          href="{{url_for('delete_record', record_id=record._id)}}"
+          class="modal-close waves-effect waves-green btn-flat"
+          >Yes</a
+        >
+        <a
+          href="{{url_for('get_records')}}"
+          class="modal-close waves-effect waves-red btn-flat"
+          >No</a
+        >
+      </div>
+    </div>
+
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
