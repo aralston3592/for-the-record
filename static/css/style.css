@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Rowdies:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Rowdies:wght@200;300;400;700&display=swap');
 
 body {
     background-color: #d8cfcf; 
@@ -100,18 +100,11 @@ nav .brand-logo {
     max-width: 16em;
 }
 
-.btn-floating .btn-large {
-    margin-top: 0.9rem;
-    padding-left: 0.5rem;
-    margin-bottom: 0.5rem;
-    display: block;
+.btn-floating {
     width: 4rem;
     height: 4rem;
-
-}
-
-.btn-floating.btn-large i {
-    margin-right: 0.5rem;
+    padding-top: 0.5rem;
+    margin: 2rem 0.5rem 0.5rem;
 }
 
 .c-btn-text{
@@ -128,9 +121,17 @@ nav .brand-logo {
     min-height: 30rem;
 }
 
+.card .card-title {
+    font-size: 24px;
+    font-weight: 300;
+    font-family: Rowdies;
+}
+
 .card .card-reveal {
     background-color: #167b71;
     color: #d8cfcf;
+    font-weight: 200;
+    font-family: 'Lato', sans-serif; 
 }
 
 img {
@@ -172,6 +173,10 @@ input[type=range] + .thumb {
     background-color: #167b71;
 }
 
+.range-field {
+    margin-top: 0.7rem;
+}
+
 ::placeholder {
     color: #000;
 }
@@ -199,6 +204,22 @@ input[type=range] + .thumb {
 
 main {
     flex: 1 0 auto;
+}
+
+/*-----------------------------------------------------------------------------------------------------RECORD PAGE*/
+
+.record-page-art {
+    height: 300px;
+    width: 300px; 
+}
+
+.record-page-content {
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+.record-page-info{
+    margin-left: 5%;
 }
 
 /*-----------------------------------------------------------------------------------------------------MODAL*/

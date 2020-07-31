@@ -2,11 +2,41 @@
 
 {% extends 'base.html' %} {% block content %} 
 
-
-
-<h1>{{record.record_title}}</h1>
-<h1>{{record.artist_name}}</h1>
-
+<div class="container record-page-content">
+    <div class="row">
+        <div class="col s12 m3">
+            <img class="record-page-art" src="{{record.album_art}}" alt="{{record.record_title}} - {{record.artist_name}}"/>
+        </div>
+        <div class="record-page-info offset-m1 col s12 m6">
+            <h3>{{record.record_title}}</h3>
+            <h4>{{record.artist_name}}</h4>
+            <div class="col s12 m6 l4">
+                <ul>
+                    <li>
+                        <i class="material-icons">label</i>
+                            {{record.label}}
+                    </li>
+                    <li>
+                        <i class="material-icons">date_range</i>
+                            {{record.year}}
+                    </li>
+                    <li>
+                        <i class="material-icons">music_note</i>
+                            {{record.genre}}
+                    </li>
+                    <li>
+                        <i class="material-icons">star</i>
+                            {{record.star_rating}}
+                </li>
+              </ul>
+            </div>
+            <div class="review col s12 m6 l8">
+                <h6>Review</h6>
+                <p>{{record.review}}</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 {% endblock %}

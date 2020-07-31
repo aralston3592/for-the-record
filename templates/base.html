@@ -62,10 +62,20 @@
           <li><a href="{{url_for('add_record')}}">Add Record</a></li>
           <li><a href="{{url_for('get_genres')}}">Genres</a></li>
           {%if session['username']%}
-            <li><a href="#modal1">Logout</a></li>
+            <li><a href="#modal3" class="modal-trigger" ata-target="modal3">Logout</a></li>
           {%else%}
             <li><a href="{{url_for('login_page')}}">Login</a></li>
           {% endif %}
+          <li id="modal3" class="modal">
+            <div class="modal-content">
+                <h2>Log Out?</h2>
+                <h4>Are you sure?</h4>
+            </div>
+            <div class="modal-footer">
+                <a href="{{url_for('logout')}}" class="modal-close waves-effect waves-green btn-flat">Yes</a>
+                <a href="{{url_for('get_records')}}" class="modal-close waves-effect waves-red btn-flat">No</a>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>

@@ -24,7 +24,7 @@
 <div class="container">
   <div class="row">
     {% for record in records %}
-    <div class="col s12 m6 l4 card">
+    <div class="col s12 m6 l4 xl3 card">
       <div class="card-image waves-effect waves-block waves-light">
         <a href="{{url_for('get_record', record_id=record._id)}}"
           ><img
@@ -74,7 +74,7 @@
           <p>{{record.review}}</p>
         </div>
         {%if session['username']%}
-        <div class="col s12">
+        <div class="col offset-s2 s8">
           <a
             href="{{url_for('edit_record', record_id=record._id)}}"
             class="btn-mobile btn-floating waves-effect waves-light orange lighten-1"
