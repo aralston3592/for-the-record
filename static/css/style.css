@@ -85,6 +85,16 @@ nav .brand-logo {
     width: 90%;
 }
 
+.btn.sort-btn {
+    border-radius: 0rem;
+    margin-top: 10px;
+    display: block;
+    max-width: 16em;
+    background-color: #0000001c;
+    border-bottom: solid 3px #167b71;
+    width: 100%;
+}
+
 .cta-btn {
     background-color: #167b71;
 }
@@ -103,7 +113,7 @@ nav .brand-logo {
 .btn-floating {
     width: 4rem;
     height: 4rem;
-    padding-top: 0.5rem;
+    padding-top: 0.6rem;
     margin: 2rem 0.5rem 0.5rem;
 }
 

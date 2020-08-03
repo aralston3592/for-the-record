@@ -145,6 +145,47 @@ def delete_record(record_id):
     mongo.db.records.delete_one({'_id': ObjectId(record_id)})
     return redirect(url_for('get_records'))
 
+# SORT RECORDS BY ARTIST
+
+
+@app.route('/sort_by_artist')
+def sort_by_artist():
+    records = mongo.db.records.find().sort('artist_name')
+    return render_template('records.html', records=records)
+
+# SORT RECORDS BY LABEL
+
+
+@app.route('/sort_by_label')
+def sort_by_label():
+    records = mongo.db.records.find().sort('label')
+    return render_template('records.html', records=records)
+
+# SORT RECORDS BY YEAR
+
+
+@app.route('/sort_by_year')
+def sort_by_year():
+    records = mongo.db.records.find().sort('year')
+    return render_template('records.html', records=records)
+
+# SORT RECORDS BY GENRE
+
+
+@app.route('/sort_by_genre')
+def sort_by_genre():
+    records = mongo.db.records.find().sort('genre')
+    return render_template('records.html', records=records)
+
+# SORT RECORDS BY STAR RATING
+
+
+@app.route('/sort_by_star_rating')
+def sort_by_star_rating():
+    records = mongo.db.records.find().sort('star_rating', -1)
+    return render_template('records.html', records=records)
+
+
 # DISPLAY RECORD ON DEVOTED PAGE BY SELECTING RECORD
 
 

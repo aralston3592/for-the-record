@@ -6,112 +6,112 @@
 <!--------------------------------------------------------------------------------------------EDIT RECORD FORM-->
 
 <div class="container">
-    <div class="row">
+  <div class="row">
     <form
-        action="{{url_for('update_record', record_id=record._id)}}"
-        method="POST"
-        class="col s12"
+      action="{{url_for('update_record', record_id=record._id)}}"
+      method="POST"
+      class="col s12"
     >
-        <div class="row">
-        <div class="input-field col s12">
-            <input
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <input
             name="record_title"
             id="record_title"
             type="text"
             class="validate"
             placeholder="Record Title"
             value="{{record.record_title}}"
-            />
+          />
         </div>
-        <div class="input-field col s12">
-            <input
+        <div class="input-field col s12 m6">
+          <input
             name="artist_name"
             id="artist_name"
             type="text"
             class="validate"
             placeholder="Artist Name"
             value="{{record.artist_name}}"
-            />
+          />
         </div>
-        <div class="input-field col s12">
-            <input
+        <div class="input-field col s12 m6">
+          <input
             name="label"
             id="label"
             type="text"
             class="validate"
             placeholder="Label"
             value="{{record.label}}"
-            />
+          />
         </div>
-        <div class="col s12">
-            <input
+        <div class="input-field col s12 m6">
+          <input
             id="year"
             name="year"
             type="text"
             class="yearpicker"
             placeholder="Release Date (yyyy)"
             value="{{record.year}}"
-            />
+          />
         </div>
-        <div class="input-field col s12">
-            <select name="genre">
+        <div class="input-field col s12 m6">
+          <select name="genre">
             <option value="" disabled selected>Select a Genre</option>
             {% for genre in genres %} {% if genre.genre_name == record.genre %}
             <option value="{{genre.genre_name}}" selected
-                >{{genre.genre_name}}</option
+              >{{genre.genre_name}}</option
             >
             {% else %}
             <option value="{{genre.genre_name}}">{{genre.genre_name}}</option>
             {% endif %} {% endfor %}
-            </select>
+          </select>
         </div>
-        <div class="input-field col s12">
-            <input
+        <div class="input-field col s12 m6">
+          <input
             id="album_art"
             name="album_art"
             type="text"
             class="validate"
             placeholder="Share a link to the album artwork..."
-            />
+          />
         </div>
-        <div class="input-field col s12">
-            <input
+        <div class="input-field col s12 m6">
+          <input
             name="get_it_here"
             id="get_it_here"
             type="text"
             class="validate"
             placeholder="Where can people buy this record?"
             value="{{record.get_it_here}}"
-            />
+          />
         </div>
-        <div class="range-field col s12">
-            <i class="material-icons prefix">star</i>
-            <input
+        <div class="range-field col s12 m6">
+          <i class="material-icons prefix">star</i>
+          <input
             type="range"
             name="star_rating"
             id="star_rating"
             min="0"
             max="5"
             value="{{record.star_rating}}"
-            />
+          />
         </div>
         <div class="input-field col s12">
-            <textarea
+          <textarea
             id="review"
             class="materialize-textarea"
             placeholder="{{record.review}}"
             name="review"
-            >
-    {{record.review}}</textarea
-            >
+          >
+            {{record.review}}</textarea
+          >
         </div>
-        <button class="cta-btn btn waves-effect waves-light" type="submit">
-            Update Entry
-            <i class="material-icons right">playlist_add</i>
-        </button>
-        </div>
+      </div>
+      <button class="cta-btn btn waves-effect waves-light" type="submit">
+          Update Entry
+        <i class="material-icons right">playlist_add</i>
+      </button>
     </form>
-    </div>
+  </div>
 </div>
 
 <!--------------------------------------------------------------------------------------------/EDIT RECORD FORM-->
