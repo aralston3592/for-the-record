@@ -17,14 +17,10 @@ Before starting the project I put together a few wireframe mockups so I had an i
 create and what I should include. It also allowed me to see how the features would be scaled and incorporated 
 over various device sizes. These were created using [Balsamiq](https://balsamiq.com/ "Balsamiq"):
 
-[Wireframe Mockups](/assets/wireframes/home-pub-quiz.bmpr "Home Pub Quiz")
+[Wireframe Mockups](/assets/wireframes/ftr-wireframes.bmpr "For the Record")
 
 These wireframe mockups show how I intended the site design and layout to look on various devices, the streamline 
 design does not vary too much between device sizes to bring a familiarity to revisiting users. 
-
-## Theme
-
-
 
 ## UX
 
@@ -32,45 +28,76 @@ The [Materialize CSS](https://materializecss.com/ "Materialize") standard 12 col
 allowed for an easily structured mobile-first design. It also made sure that Home Pub Quiz is responsive over 
 varying screen sizes and devices. Images below show how the design and layout scales to suit each device size:
 
-* Mobile Designs: [Mobile Home Page](/assets/img/HPQ-mobile-home.png "Mobile Home Page"), [Mobile Quiz Page](/assets/img/HPQ-mobile-quiz.png "Mobile Quiz Page"), [Mobile Score Page](/assets/img/HPQ-mobile-score.png "Mobile Score Page") 
-* Tablet Designs: [Tablet Home Page](/assets/img/HPQ-tablet-home.png "Tablet Home Page"), [Tablet Quiz Page](/assets/img/HPQ-tablet-quiz.png "Tablet Quiz Page"), [Tablet Score Page](/assets/img/HPQ-tablet-score.png "Tablet Score Page")
-* Desktop Designs: [Desktop Home Page](/assets/img/HPQ-desktop-home.png "Desktop Home Page"), [Desktop Quiz Page](/assets/img/HPQ-desktop-quiz.png "Desktop Quiz Page"), [Desktop Score Page](/assets/img/HPQ-desktop-score.png "Desktop Score Page")
+* Mobile Designs: [Mobile Welcome Page](/assets/img/ftr-welcome-mobile.png "Mobile Welcome Page"), [Mobile Records Page](/assets/img/ftr-records-mobile.png "Mobile Records Page"), [Mobile Login Page](/assets/img/ftr-login-mobile.png "Mobile Login Page"), [Mobile Add a Record Page](/assets/img/ftr-add-mobile.png "Mobile Add a Record Page"), [Mobile Genres Page](/assets/img/ftr-genres-mobile.png "Mobile Genres Page") 
+* Desktop Designs: [Desktop Welcome Page](/assets/img/ftr-welcome-desktop.png "Desktop Welcome Page"), [Desktop Records Page](/assets/img/ftr-records-desktop.png "Desktop Records Page"), [Desktop Login Page](/assets/img/ftr-login-desktop.png "Desktop Login Page"), [Desktop Add a Record Page](/assets/img/ftr-add-desktop.png "Desktop Add a Record Page"), [Desktop Genres Page](/assets/img/ftr-genres-desktop.png "Desktop Genres Page")
 
 
 ## Features & Layout
 
 ### Welcome Page
 
-Welcomes the user to For the Record and invites existing users to sign in and newcomers to register via two buttons that are centre page.
-For The Record heading is located in the bottom left of screen and the background image created
+Welcomes the user to For the Record, invites existing users to sign in and newcomers to register via two buttons that are centre page.
+'For The Record' heading is located in the bottom left with the background image filling the screen behind.
 
-### Quiz Rounds
+### NavBar/Footer
 
-Each of the six quiz rounds have a round specific category and are made up of five trivia questions. The categories for each round are: 
+#### NavBar
+Logo and 'For the Record' title to the left with site navigation to the right. The NavBar allows the user to easily access the Record Collection, Add a Record, Browse by Genre and Login/Logout. 
+Displayed on all pages below.
+#### Footer
+A small intro for users to the site along with a few links to online record stores. Copyright declaration visible here. Displayed at the bottom of all pages below.
 
-* Food & Drink
-* Science & Nature
-* Movies
-* Music
-* Sport
-* General Knowledge
+### Register Page
 
-In each round the user may choose one of a possible three answers for each question and their score will be calculated depending on their input. A correct answer will add one point to the user's score, however an incorrect answer will result in a one point deduction, meaning it may be a better idea to leave an question unanswered if the user is not certain of the answer. 
+New users are invited to register their details and choose a password to use when returning to the site.
 
-The Home button at the bottom of each quiz round allows the user to restart the quiz by taking them back to the langing page. The next button allows the user to access the next round of the quiz. The complete button at the foot of round 6 totals the user's score and takes them to the score page.
+### Login Page
 
-### Score Page
+Existing user can use their saved details and access the collection.
 
-The score page is where the user is taken upon completion of the quiz and aloows the user to see their total score. It also allows them to challenge their friends and family to take the quiz by sharing on social media. The social media share buttons have been added using [Share This](https://platform.sharethis.com/ "Share This Platform").
+### Record Collection
+
+Each record's artwork and title is displayed within a card with a link to purchase the record at the foot.
+The record artwork image is a link to the record information page.
+Each card has an information section hidden containing:
+
+* Artist Name
+* Label
+* Genre
+* Year
+* Star Rating
+* Review
+
+When a user is active an update and delete button will be displayed below the record information.
+
+### Record Page
+
+Displayed after clicking on the album artwork of any record in the collection. This page shows the
+record information along with options to update, delete or find out where to buy it.
+
+### Genres Page
+
+The Genres page provides a list of all genres currently stored in the database. Each of these listed genres provide
+a link to the genre specific page showing each record in that genre.
+
+For active users there is an option to add a genre at the foot of the list. 
+
+### Genre Page
+
+After selecting a genre from the list each record from that genre will be displayed here in the same cards as in the Record Collection Page.
+
+### Add/Edit a Record/Genre Page 
+
+Users can input the information via forms and easily add/edit the collections.
 
 ## Future Improvements
 
-### Split Rounds Into Individual Quizzes
-Add more questions to each round and make them individual quizzes that can be accessed by a category button on the landing page.
-### High Scores Page
-Allow users to input details and keep a leaderboard of all participants to build mor competition between users and drive up usage.
-### Add More Categories 
-Bring in more categories to fit in with above suggestion to create an individual quiz from each category. This could involve bringing in more specific categories and sub-categories that would make the quiz more accessible for all ages including but not limited to: Children's Trivia; Decade Specific Music and Movies; TV Shows; History; Geography; Specific Sports(e.g. Football, Rugby, Badminton etc.).
+### Add a Record of the Month 
+Give users a glimpse at the hottest record of the month.
+### Record Club Listening Parties
+Virtual listening parties organised by users would be streamed via the site.
+### Search Record Collection
+Add a search bar to the navbar allowing users to search keywords to find a specific record.
 
 ## Testing
 
@@ -80,27 +107,30 @@ To validate my HTML I used [W3C HTML Validator](https://validator.w3.org/ "W3C H
 
 To validate my CSS I used [W3C CSS Validator](https://jigsaw.w3.org/css-validator/ "W3C CSS Validator").
 
-I passed my JS through [JSHint](https://jshint.com/ "JSHint") linter without any issues.
-
-Used family and friends to perform small beta test before deployment. 
 
 ## Deployment
 
-Site was deployed using [GitHub](https://github.com/ "GitHub"):
+Site was deployed using [Heroku](https://www.heroku.com/ "Heroku"):
 
-1. Open [GitHub Repository](https://github.com/aralston3592/pub-quiz "Home Pub Quiz").
-2. Click on SETTINGS then scroll down to GitHub PAGES.
-3. Select master branch as the SOURCE.
-4. 'Your site is published at https://aralston3592.github.io/pub-quiz/' will appear on screen.
-5. Site deployed, click link to access.
+1. Log in to Heroku Dashboard.
+2. Click on New dropdown menu on the right a choose Create New App.
+3. Complete form then submit to create app.
+4. Select App(for-the-record) from Dashboard.
+5. Click on the Settings tab then find Reveal Config Vars in the Config Vars section.
+6. Add Config Vars.
+7. Click on the Deploy tab then Click on GitHub in the Deployment Method section.
+8. Then Connect app to [GitHub Repository](https://github.com/aralston3592/for-the-record/ "GitHub Repository")
+9. Deploy the app via Heroku using the Master Branch via the Manual Deploy Section.
+10. Once completed Click View App button to begin using the app.
 
 ## Technology Used
 
 * Wireframes: [Balsamiq](https://balsamiq.com/ "Balsamiq")
-* Programming Languages: HTML, CSS, Javascript
-* Fonts & Icons: [Google Fonts](https://fonts.google.com/ "Google Fonts"), [Materialize CSS](https://materializecss.com/ "Materialize"), [Share This](https://platform.sharethis.com/ "Share This Platform"). 
+* Database: [Mongo DB](https://www.mongodb.com/ "MongoDB")
+* Programming Languages: HTML, CSS, Javascript, Python
+* Fonts & Icons: [Google Fonts](https://fonts.google.com/ "Google Fonts"), [Font Awesome](https://fontawesome.com/ "Font Awesome"), [Materialize CSS](https://materializecss.com/ "Materialize"). 
 * Javascript: [JQuery](https://jquery.com/ "JQuery")
 * Responsive Design: [Materialize CSS](https://materializecss.com/ "Materialize")
 * IDE: [Gitpod](https://gitpod.io/ "GitPod")
 * Version Control: [Git](https://git-scm.com/ "Git")
-* Repository Host/Deployment: [GitHub](https://github.com/ "GitHub")
+* Repository Host/Deployment: [Heroku](https://www.heroku.com/ "Heroku")
